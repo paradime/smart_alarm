@@ -1,12 +1,13 @@
 config_file = "example_config.json"
-
+from Configuration import Configuration
+from datetime import datetime
+import json
 class Alarm:
-    alarm_time = ""
-    is_on = False
 
-    def __init__(self):
+    def __init__(self, config):
         self.is_on = False
-
+        alarm_string = config.alarm["alarmtime"]
+        self.alarm_time = datetime.strptime(alarm_string, '%I:%M%p')
 
     def set_alarm(new_time):
         self.alarm_time = new_time
@@ -21,7 +22,7 @@ class Alarm:
 
 
 def main(config_file):
-    pass
-
+    config = Configuration(config_file)
+    alarm = Alarm(config)
 
 main(config_file)
