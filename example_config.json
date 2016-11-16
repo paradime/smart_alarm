@@ -1,3 +1,21 @@
 {
+    "weather" : {
+        "api-key" : "",
+        "zipcode" : "14623",
+        "countrycode" : "us"
+    },
 
+    "alarm" : {
+        "alarmtime" : "12:00PM"
+    },
+
+    "calendar" : {
+        "api-key" : "",
+
+        "calendarid" : ""
+    },
+
+    "music" : {
+        "file" : ""
+    }
 }

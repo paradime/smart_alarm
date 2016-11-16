@@ -1,5 +1,4 @@
 import pyowm
-api = '3501d9bd0853dd3f32f9cd87308c5d45'
 location = '14623,us'
 units = 'fahrenheit'
 
