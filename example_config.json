@@ -12,8 +12,8 @@
     },
 
     "calendar" : {
-        // Google Calendar API key
-        "api-key" : "",
+        // Google Calendar OAuth 2.0 client ID
+        "oauth-key" : "",
 
         // Default is email address
         "calendarid" : ""
