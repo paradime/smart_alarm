@@ -1,4 +1,4 @@
-config_file = "example_config.json"
+config_file = "secret_config.json"
 from Configuration import Configuration
 from datetime import datetime
 import json

@@ -1,26 +1,20 @@
 {
     "weather" : {
-        // Open Weather Map API Key
         "api-key" : "",
         "zipcode" : "14623",
         "countrycode" : "us"
     },
 
     "alarm" : {
-        // The time the Alarm should go off every day
         "alarmtime" : "12:00PM"
     },
 
     "calendar" : {
-        // Google Calendar API key
-        "api-key" : "",
-
-        // Default is email address
+        "oauth-key" : "",
         "calendarid" : ""
     },
 
     "music" : {
-        // MP3 File
         "file" : ""
     }
 }
