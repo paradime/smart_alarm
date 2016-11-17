@@ -1,12 +1,12 @@
 import pyowm
-location = '14623,us'
-units = 'fahrenheit'
+from Configuration import Configuration
 
 class Weather:
     def __init__(self):
-        self.owm = pyowm.OWM(api)
-        self.location = location
-        self.units = units
+        config = Configuration().weather
+        self.owm = pyowm.OWM(config['api-key'])
+        self.location = config['zipcode']+','+config['countrycode']
+        self.units = config['units']
 
     def get_temperature(self):
         obs = self.owm.weather_at_place(self.location)
