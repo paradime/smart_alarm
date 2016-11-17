@@ -21,8 +21,8 @@ class Alarm:
         self.is_on = True
 
 
-def main(config_file):
-    config = Configuration(config_file)
+def main():
+    config = Configuration()
     alarm = Alarm(config)
 
-main(config_file)
+main()
