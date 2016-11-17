@@ -10,8 +10,7 @@
     },
 
     "calendar" : {
-        "api-key" : "",
-
+        "oauth-key" : "",
         "calendarid" : ""
     },
 
