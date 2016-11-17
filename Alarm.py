@@ -14,8 +14,8 @@ class Alarm:
     def start_alarm():
         pass
 
-def main(config_file):
-    config = Configuration(config_file)
+def main():
+    config = Configuration()
     alarm = Alarm(config)
 
-main(config_file)
+main()
