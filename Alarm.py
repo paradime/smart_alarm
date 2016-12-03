@@ -9,6 +9,7 @@ import json
 class Alarm:
     def __init__(self, config):
         alarm_string = config.alarm["alarmtime"]
+        self.config = config
         self.services = [Weather, Calendar]
         self.set_alarm(alarm_string)
 
@@ -27,7 +28,7 @@ class Alarm:
             )
     
     def start_alarm(self):
-        self.play_text('Good morning Bryon')
+        self.play_text(self.config.alarm['greeting'])
         for service in self.services:
             self.play_text(service().get_info())
         self.play_music()
@@ -40,7 +41,7 @@ class Alarm:
 
     def play_music(self):
         tts = TTS(44100)
-        wav = 'jungle_falls.wav'
+        wav = self.config.music['file']
         tts.play(wav)
 
 def main():
@@ -48,7 +49,7 @@ def main():
     while(1):
         alarm = Alarm(config)
         while datetime.now() < alarm.alarm_time:
-            pass
+            sleep(5) # drastically reduces CPU time while polling
         alarm.start_alarm()
 
 
