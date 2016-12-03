@@ -60,7 +60,7 @@ class Calendar:
 
         tmin = datetime.datetime.utcnow()
         now = tmin.isoformat() + 'Z' # 'Z' indicates UTC time
-        tmax = datetime.datetime(year=tmin.year, month=tmin.month, day=tmin.day + 1)
+        tmax = datetime.datetime(year=tmin.year, month=tmin.month, day=tmin.day + 1, hour=5)
         tmax = tmax.isoformat() + 'Z' # 'Z' indicated UTC time
         eventsResult = service.events().list(
             calendarId='primary', timeMin=now, timeMax=tmax, singleEvents=True,
