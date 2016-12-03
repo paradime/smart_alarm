@@ -1,11 +1,16 @@
 config_file = "secret_config.json"
 from Configuration import Configuration
+from Calendar import Calendar
+from Weather import Weather
 from datetime import datetime
+from TTS import TTS
+from time import sleep
 import json
 class Alarm:
 
     def __init__(self, config):
         alarm_string = config.alarm["alarmtime"]
+        self.services = [Weather, Calendar]
         self.set_alarm(alarm_string)
 
     def set_alarm(self, alarm_string):
@@ -22,15 +27,23 @@ class Alarm:
                 self.alarm_time.minute
             )
     
-    def start_alarm():
-        pass
+    def start_alarm(self):
+        for service in self.services:
+            self.play_text(service().get_info())
+
+    def play_text(self, text):
+        tts = TTS()
+        mp3 = tts.text_to_speech(text)
+        wav = tts.convert(mp3)
+        tts.play(wav)
+        sleep(10)
+
 def main():
     config = Configuration()
     alarm = Alarm(config)
 
-    while datetime.now() < alarm.alarm_time:
-        pass
-
+    #while datetime.now() < alarm.alarm_time:
+    alarm.start_alarm()
     print("buzz buzz")
 
 

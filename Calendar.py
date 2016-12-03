@@ -23,10 +23,8 @@ CLIENT_SECRET_FILE = 'client_secret.json'
 APPLICATION_NAME = 'Python Alarm App'
 
 class Calendar:
-    def __init__(self, config):
-        self.events = get_events()
 
-    def get_credentials():
+    def get_credentials(self):
         """Gets valid user credentials from storage.
 
         If nothing has been stored, or if the stored credentials are invalid,
@@ -54,7 +52,7 @@ class Calendar:
             print('Storing credentials to ' + credential_path)
         return credentials
 
-    def get_events():
+    def get_events(self):
         credentials = get_credentials()
         http = credentials.authorize(httplib2.Http())
         service = discovery.build('calendar', 'v3', http=http)
@@ -76,3 +74,6 @@ class Calendar:
             start = event['start'].get('dateTime', event['start'].get('date'))
             event_starts.append(event['summary'] + " " + str(start))
         return event_starts
+    
+    def get_info(self):
+        return 'Brunch at 11am'

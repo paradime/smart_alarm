@@ -28,6 +28,6 @@ class Weather:
         return self.get_weather().get_detailed_status()
 
     def get_info(self):
-        report = str.format("The current temperature is {} degrees Fahrenheit. The forecast for today is {}, with a high of {}, and a low of {}.", self.get_temperature(), self.get_status(), self.get_high(), self.get_low())
+        report = str.format("The current temperature is {} degrees Fahrenheit. The forecast for today is {}, with a high of {}, and a low of {}.", int(self.get_temperature()), self.get_status(), int(self.get_high()), int(self.get_low()))
         return report
 
