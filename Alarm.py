@@ -28,6 +28,7 @@ class Alarm:
             )
     
     def start_alarm(self):
+        self.play_text('Good morning Bryon')
         for service in self.services:
             self.play_text(service().get_info())
         self.play_music()

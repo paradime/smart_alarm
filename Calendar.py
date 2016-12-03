@@ -80,5 +80,6 @@ class Calendar:
 
     def get_info(self):
         events = self.get_events()
-        report = ". ".join(events)
+        report = "Your events for today are."
+        report += ". ".join(events)
         return report
