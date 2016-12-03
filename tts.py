@@ -3,8 +3,9 @@ from pygame import mixer
 from gtts import gTTS
 
 class TTS:
-    def __init__(self):
-        mixer.init(frequency=24000)
+    def __init__(self, frequency=24000):
+        self.mixer = mixer
+        self.mixer.init(frequency=frequency)
 
     def text_to_speech(self, text):
         tts = gTTS(text=text, lang='en')
@@ -17,5 +18,8 @@ class TTS:
         return 'test.wav'
 
     def play(self, wav):
-        mixer.music.load(wav)
-        mixer.music.play()
+        self.mixer.music.load(wav)
+        self.mixer.music.play()
+        while(self.mixer.music.get_busy()):
+            pass
+        self.mixer.quit()

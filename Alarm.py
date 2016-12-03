@@ -30,13 +30,18 @@ class Alarm:
     def start_alarm(self):
         for service in self.services:
             self.play_text(service().get_info())
+        self.play_music()
 
     def play_text(self, text):
         tts = TTS()
         mp3 = tts.text_to_speech(text)
         wav = tts.convert(mp3)
         tts.play(wav)
-        sleep(10)
+
+    def play_music(self):
+        tts = TTS(44100)
+        wav = tts.convert('jungle_falls.mp3')
+        tts.play(wav)
 
 def main():
     config = Configuration()
