@@ -9,4 +9,5 @@ class Configuration:
         
         self.weather = data["weather"]
         self.alarm = data["alarm"]
+        self.music = data['music']
 

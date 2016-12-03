@@ -6,15 +6,11 @@
     },
 
     "alarm" : {
-        "alarmtime" : "12:00PM"
+        "alarmtime" : "12:00PM",
+        "greeting" : ""
     },
-
-    "calendar" : {
-        "oauth-key" : "",
-        "calendarid" : ""
-    },
-
+    
     "music" : {
-        "file" : ""
+        "file" : "jungle_falls.wav"
     }
 }
