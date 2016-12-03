@@ -40,17 +40,16 @@ class Alarm:
 
     def play_music(self):
         tts = TTS(44100)
-        wav = tts.convert('jungle_falls.mp3')
+        wav = 'jungle_falls.wav'
         tts.play(wav)
 
 def main():
     config = Configuration()
-    alarm = Alarm(config)
-
-    while datetime.now() < alarm.alarm_time:
-        pass
-    print("buzz buzz")
-    alarm.start_alarm()
+    while(1):
+        alarm = Alarm(config)
+        while datetime.now() < alarm.alarm_time:
+            pass
+        alarm.start_alarm()
 
 
 main()
