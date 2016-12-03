@@ -7,7 +7,6 @@ from TTS import TTS
 from time import sleep
 import json
 class Alarm:
-
     def __init__(self, config):
         alarm_string = config.alarm["alarmtime"]
         self.services = [Weather, Calendar]
@@ -48,9 +47,10 @@ def main():
     config = Configuration()
     alarm = Alarm(config)
 
-    #while datetime.now() < alarm.alarm_time:
-    alarm.start_alarm()
+    while datetime.now() < alarm.alarm_time:
+        pass
     print("buzz buzz")
+    alarm.start_alarm()
 
 
 main()
