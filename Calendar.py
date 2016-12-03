@@ -52,7 +52,6 @@ class Calendar:
             print('Storing credentials to ' + credential_path)
         return credentials
 
-    # Retrieve events from your calendar using the Google API
     def get_events(self):
         credentials = self.get_credentials()
         http = credentials.authorize(httplib2.Http())
@@ -81,5 +80,6 @@ class Calendar:
 
     def get_info(self):
         events = self.get_events()
-        report = ". ".join(events)
+        report = "Your events for today are."
+        report += ". ".join(events)
         return report
