@@ -4,13 +4,14 @@ from Calendar import Calendar
 from Weather import Weather
 from datetime import datetime
 from TTS import TTS
+from QOTD import QOTD
 from time import sleep
 import json
 class Alarm:
     def __init__(self, config):
         alarm_string = config.alarm["alarmtime"]
         self.config = config
-        self.services = [Weather, Calendar]
+        self.services = [Weather, Calendar, QOTD]
         self.set_alarm(alarm_string)
 
     def set_alarm(self, alarm_string):
