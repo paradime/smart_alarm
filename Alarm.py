@@ -31,7 +31,11 @@ class Alarm:
     def start_alarm(self):
         self.play_text(self.config.alarm['greeting'])
         for service in self.services:
-            self.play_text(service().get_info())
+            try:
+                text = service().get_info()
+            except:
+                text = 'There was en error connecting to the ' + service.__name__ + ' service'
+            self.play_text(text)
         self.play_music()
 
     def play_text(self, text):
@@ -45,13 +49,3 @@ class Alarm:
         wav = self.config.music['file']
         tts.play(wav)
 
-def main():
-    config = Configuration()
-    while(1):
-        alarm = Alarm(config)
-        while datetime.now() < alarm.alarm_time:
-            sleep(5) # drastically reduces CPU time while polling
-        alarm.start_alarm()
-
-
-main()

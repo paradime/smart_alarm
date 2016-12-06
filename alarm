@@ -10,7 +10,7 @@
 ### END INIT INFO
 
 dir="/home/pi/workspace/smart_alarm/"
-cmd="python3 Alarm.py"
+cmd="python3 AlarmDriver.py"
 user=""
 
 name=`basename $0`
