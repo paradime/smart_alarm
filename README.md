@@ -25,3 +25,7 @@ src="https://theysaidso.com/branding/theysaidso.png" height="20" width="20"
 alt="theysaidso.com"/><a href="https://theysaidso.com" title="Powered by quotes
 from theysaidso.com" style="color: #9fcc25; margin-left: 4px; vertical-align:
 middle;">theysaidso.com</a></span>
+
+## Demo
+
+You can see the alarm in action at https://www.youtube.com/watch?v=4ISQs9f4q-Y
