@@ -37,3 +37,7 @@ middle;">theysaidso.com</a></span> There is no api key associated with this, so 
 # Demo
 
 You can see the alarm in action at https://www.youtube.com/watch?v=4ISQs9f4q-Y
+
+# Authors
+
+Brought to you by Shayde Nofziger and Bryon Wilkins for CMPE-240 final project.
