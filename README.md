@@ -19,7 +19,9 @@ All services are found in the Alarm initialization. You can add or remove servic
 
 https://calendar.google.com
 
-Information for how to setup all api file requirements can be found at https://developers.google.com/api-client-library/python/start/get_started
+Google Calendar API communicates using the OAuth protocol. Follow the steps outlined [here](https://developers.google.com/identity/protocols/OAuth2) to enable OAuth 2 for your Google Account. You will need to [create credentials](https://console.developers.google.com/apis/credentials) and download the JSON formatted key. Name this file `client_secret.json` and place it at the root of the directory.
+
+The first time you run the application, you will need to click a confirmation screen in order to allow access to your google account. After this initial consent, you will no longer be prompted.
 
 ## Weather API
 
