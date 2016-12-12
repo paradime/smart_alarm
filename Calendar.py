@@ -70,13 +70,23 @@ class Calendar:
             return []
         event_starts = []
         for event in events:
+            event_starts.append(self.format_event(event))
+        return event_starts
+
+    def format_event(self, event):
             start_time = event['start'].get('dateTime', event['start'].get('date'))
             local_time, offset_time = start_time[:-6], start_time[-6:]
             offset_time = offset_time.replace(':', '')
-            event_time_formatted = datetime.datetime.strptime(local_time + offset_time, '%Y-%m-%dT%H:%M:%S%z')
-            info_string = event_time_formatted.strftime("%I:%M %p")
-            event_starts.append(event['summary'] + " beginning at " + info_string)
-        return event_starts
+            try:
+                event_time_formatted = datetime.datetime.strptime(local_time + offset_time, '%Y-%m-%dT%H:%M:%S%z')
+            except ValueError:
+                return (event['summary'] + ' all day')
+
+            info_string = ''
+            for time in event_time_formatted.strftime("%I:%M %p").split(':'):
+                info_string += time.lstrip('0')
+            return (event['summary'] + " beginning at " + info_string)
+        
 
     def get_info(self):
         events = self.get_events()

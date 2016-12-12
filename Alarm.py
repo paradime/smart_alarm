@@ -4,13 +4,14 @@ from Calendar import Calendar
 from Weather import Weather
 from datetime import datetime
 from TTS import TTS
+from QOTD import QOTD
 from time import sleep
 import json
 class Alarm:
     def __init__(self, config):
         alarm_string = config.alarm["alarmtime"]
         self.config = config
-        self.services = [Weather, Calendar]
+        self.services = [Weather, Calendar, QOTD]
         self.set_alarm(alarm_string)
 
     def set_alarm(self, alarm_string):
@@ -30,7 +31,11 @@ class Alarm:
     def start_alarm(self):
         self.play_text(self.config.alarm['greeting'])
         for service in self.services:
-            self.play_text(service().get_info())
+            try:
+                text = service().get_info()
+            except:
+                text = 'There was en error connecting to the ' + service.__name__ + ' service'
+            self.play_text(text)
         self.play_music()
 
     def play_text(self, text):
@@ -44,13 +49,3 @@ class Alarm:
         wav = self.config.music['file']
         tts.play(wav)
 
-def main():
-    config = Configuration()
-    while(1):
-        alarm = Alarm(config)
-        while datetime.now() < alarm.alarm_time:
-            sleep(5) # drastically reduces CPU time while polling
-        alarm.start_alarm()
-
-
-main()
